@@ -6,12 +6,15 @@ const initialList = [
   { id: 1, title: 'Lunar Landscape', seen: false },
   { id: 2, title: 'Terracotta Army', seen: true },
 ];
+const initialList2 = [
+    { id: 0, title: 'Big Bellies', seen: false },
+    { id: 1, title: 'Lunar Landscape', seen: false },
+    { id: 2, title: 'Terracotta Army', seen: true },
+];
 
 export default function BucketList() {
   const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(
-    initialList
-  );
+  const [yourList, setYourList] = useState(initialList2);
 
   function handleToggleMyList(artworkId, nextSeen) {
     const tmpList = myList.map(e => {
