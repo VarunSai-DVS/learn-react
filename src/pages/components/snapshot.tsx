@@ -8,7 +8,7 @@ import { useState } from 'react';
  * but batches the updates and performs them in a single render cycle.
  */
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  let [number, setNumber] = useState(0);
 
   return (
     <>

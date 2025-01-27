@@ -1,3 +1,5 @@
+import {SetStateAction, useState} from "react";
+
 /**
  * When the Form is rendered, it appears to be frozen. 
  * When a user enters stuff into the <input> tags or 
@@ -5,20 +7,20 @@
  * Identify and fix the error. 
  */
 export default function Form() {
-  let firstName = '';
-  let lastName = '';
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-  function handleFirstNameChange(e: { target: { value: string; }; }) {
-    firstName = e.target.value;
+  function handleFirstNameChange(e: { target: { value: SetStateAction<string>; }; }) {
+      setFirstName(e.target.value);
   }
 
-  function handleLastNameChange(e: { target: { value: string; }; }) {
-    lastName = e.target.value;
+  function handleLastNameChange(e: { target: { value: SetStateAction<string>; }; }) {
+      setLastName(e.target.value);
   }
 
   function handleReset() {
-    firstName = '';
-    lastName = '';
+      setFirstName("");
+      setLastName("");
   }
 
   return (
@@ -26,15 +28,15 @@ export default function Form() {
       <input
         placeholder="First name"
         value={firstName}
-        onChange={handleFirstNameChange}
+        onChange={e => handleFirstNameChange(e)}
       />
       <input
         placeholder="Last name"
         value={lastName}
-        onChange={handleLastNameChange}
+        onChange={e => handleLastNameChange(e)}
       />
       <h1>Hi, {firstName} {lastName}</h1>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={e => handleReset()}>Reset</button>
     </form>
   );
 }

@@ -6,6 +6,8 @@ import { useState } from 'react';
 export default function Counter() {
   const [number, setNumber] = useState(0);
 
+  // Arrow functions always return a value.
+
   /**
    * The arrow functions passed to setNumber are queued up and
    * executed in the order they were called, updating the state
